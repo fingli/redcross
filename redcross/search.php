@@ -15,7 +15,7 @@ get_header();
 			<!--BEGIN #primary .hfeed-->
 			<div id="primary" class="hfeed" role="main">
 			<?php if ( have_posts() ) : ?>
-				<h1 class="page-title search-title"><?php _e( 'Search Results for:', 'redline' );?> <?php the_post(); echo '<span class="search-term">'. $s .'</span>'; rewind_posts(); ?></h1>
+				<h2 class="entry-title search-title"><?php _e( 'Search Results for:', 'redline' );?> <?php the_post(); echo '<span class="search-term">'. the_search_query() .'</span>'; rewind_posts(); ?></h2><br />
 
 				<!--BEGIN #search-query-->
 				<ol id="search-query">
@@ -60,8 +60,8 @@ get_header();
 				<?php else : ?>
 
 				<!--BEGIN #post-0-->
-				<div id="post-0" class="<?php semantic_entries(); ?>">
-					<h2 class="entry-title"><?php _e( 'Your search for', 'redline' );?> "<?php echo "$s"; ?>" <?php _e( 'did not match any entries', 'redline' );?></h2>
+				<div id="post-0" class="post no-results not-found">
+					<h2 class="entry-title"><?php _e( 'Your search for', 'redline' );?> "<?php the_search_query(); ?>" <?php _e( 'did not match any entries', 'redline' );?></h2>
 					
 					<!--BEGIN .entry-content-->
 					<div class="entry-content">
